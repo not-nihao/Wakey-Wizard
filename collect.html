@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Arigato</title>
+    <title>Greeting</title>
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const class_ = getQueryParam('class');
+            if (class_) {
+                document.getElementById('greeting').textContent = `Hello, ${class_}!`;
+            }
+        });
+    </script>
 </head>
 <body>
-    <h2>Thank you for submitting the form!</h2>
+    <h1 id="greeting">Hello!</h1>
 </body>
 </html>

@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Enter Your Name</title>
+    <title>Enter Your class</title>
+    <script>
+        function redirectToGreetingPage(event) {
+            event.preventDefault();
+            const class_ = document.getElementById('class').value;
+            window.location.href = `collect.html?name=${class_}`;
+        }
+    </script>
 </head>
 <body>
-    <h2>Please Enter Your Name</h2>
-    <form action="/collect.html" method="get">
-        <label for="name">Class:</label>
-        <input type="text" id="name" name="name" required>
-        <input type="submit" value="Submit" formaction="/collect.html">
+    <h2>Please Enter Your class</h2>
+    <form onsubmit="redirectToGreetingPage(event)">
+        <label for="class">Class:</label>
+        <input type="text" id="class" name="class" required>
+        <input type="submit" value="Submit">
     </form>
 </body>
 </html>
